@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import "./App.jsx";
 import Note from "./components/Note";
+
 
 // const Note =({ note }) => {
 //   return(
@@ -9,11 +11,29 @@ import Note from "./components/Note";
 
 const App = (props) => {
   const [notes, setNotes]  = useState(props.notes)
+  const [newNote, setNewNote] = useState(
+    'a new note...'
+  )
+  
   // const result = notes.map(note => note.id)
   // console.log(result)
   const addNote = (event) => {
     event.preventDefault()
+    const noteObject = {
+      content: newNote,
+      important: Math.random() < 0.5,
+      id: notes.length + 1,
+    }
+  
+    setNotes(notes.concat(noteObject))
+    setNewNote('')
+  
     console.log('button clicked', event.target)
+
+  }
+  const handleNoteChange = (event)=> {
+    console.log(event.target.value)
+    setNewNote(event.target.value)
   }
   return (
     <div>
@@ -30,7 +50,10 @@ const App = (props) => {
       )}
       </ul>
       <form onSubmit ={addNote}>
-      <input />
+      <input 
+      value ={newNote}
+      onChange={handleNoteChange}
+       />
       <button type="submit">save</button>
       </form>
     </div>
