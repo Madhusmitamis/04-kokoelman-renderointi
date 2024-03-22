@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import "./App.jsx";
+import "./App.css";
 import Note from "./components/Note";
 
 
