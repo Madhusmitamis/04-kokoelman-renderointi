@@ -8,7 +8,8 @@ axios
 .get('http://localhost:3001/notes')
 .then(response => {
   const notes = response.data
-  console.log(notes)
+  ReactDOM.createRoot(document.getElementById('root')).render(<App notes={notes} />)
+  // console.log(notes)
 })
 // console.log(promise)
 
