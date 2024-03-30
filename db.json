@@ -1,19 +1,94 @@
 {
-    "notes": [
-      {
-        "id": 1,
-        "content": "HTML is easy",
-        "important": true
-      },
-      {
-        "id": 2,
-        "content": "Browser can execute only JavaScript",
-        "important": false
-      },
-      {
-        "id": 3,
-        "content": "GET and POST are the most important methods of HTTP protocol",
-        "important": true
-      }
-    ]
-  }
+  "notes": [
+    {
+      "id": "1",
+      "content": "HTML is easy",
+      "important": true
+    },
+    {
+      "id": "2",
+      "content": "Browser can execute only JavaScript",
+      "important": false
+    },
+    {
+      "id": "3",
+      "content": "GET and POST are the most important methods of HTTP protocol",
+      "important": true
+    },
+    {
+      "id": "71c3",
+      "content": "",
+      "important": false
+    },
+    {
+      "id": "a1c8",
+      "content": "everything is important",
+      "important": true
+    },
+    {
+      "id": "f1d2",
+      "content": "post is used to create new resources",
+      "important": false
+    },
+    {
+      "id": "2286",
+      "content": "post is used to create new resources",
+      "important": true
+    },
+    {
+      "id": "9f5f",
+      "content": "post is used to create new resources",
+      "important": true
+    },
+    {
+      "id": "eb3a",
+      "content": "post is used to create new resources",
+      "important": false
+    },
+    {
+      "id": "012f",
+      "content": "post is used to create new resources",
+      "important": true
+    },
+    {
+      "id": "e184",
+      "content": "post is used to create new resources",
+      "important": true
+    },
+    {
+      "id": "8e87",
+      "content": "post is used to create new resources",
+      "important": false
+    },
+    {
+      "id": "fea1",
+      "content": "post is used to create new resources",
+      "important": true
+    },
+    {
+      "id": "0a70",
+      "content": "post is used to create new resources",
+      "important": false
+    },
+    {
+      "id": "49eb",
+      "content": "post is used to create new resources",
+      "important": true
+    },
+    {
+      "id": "4b87",
+      "content": "post is used to create new resources",
+      "important": false
+    },
+    {
+      "id": "8f21",
+      "content": "post is used to create new resources",
+      "important": true
+    },
+    {
+      "id": "26e1",
+      "content": "Html is easy",
+      "important": true
+    }
+  ]
+}
