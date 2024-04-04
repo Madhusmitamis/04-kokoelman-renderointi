@@ -3,32 +3,16 @@ import "./App.css";
 import axios from'axios'
 import Note from "./components/Note";
 import noteService from './services/notes'
+import Notification from './components/Notification';
 
 
-// const Note =({ note }) => {
-//   return(
-//     <li>{note.content}</li>
-//   )
-// }
 
 const App = () => {
   const [notes, setNotes]  = useState([])
   const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(true)
-
-  // const hook = () => {
-  //   // console.log('effect')
-  //   axios
-  //     .get('http://localhost:3001/notes')
-  //     .then(response => {
-  //       // console.log('promise fulfilled')
-  //       setNotes(response.data)
-  //     })
-  // }
-// useEffect(hook,[])
-    //  console.log('render', notes.length, 'notes')
-   // const result = notes.map(note => note.id)
-  // console.log(result)
+  const [errorMessage, setErrorMessage] = useState('some error happened...')
+  
   useEffect(() => {
     noteService
       .getAll()
@@ -44,8 +28,7 @@ const App = () => {
       important: Math.random() < 0.5,
       // id: notes.length + 1,
     }
-    // axios
-    // .post('http://localhost:3001/notes', noteObject)
+    
     noteService
     .create(noteObject)
     .then(returnedNote => {
@@ -53,27 +36,26 @@ const App = () => {
      setNewNote('')
       // console.log(response)
     })
-  //console.log('button clicked', event.target)
+  
   }
-  // axios.put(url, changedNote).then(response => {
-  //   setNotes(notes.map(n => n.id !== id ? n : response.data))
-  // })
   const toggleImportanceOf = (id) => {
-    // console.log('importance of ' + id + ' needs to be toggled')
-const url = `http://localhost:3001/notes/${id}`
-const note = notes.find(n => n.id === id)
-const changedNote = { ...note, important: !note.important }
+  const note = notes.find(n => n.id === id)
+  const changedNote = { ...note, important: !note.important }
 
-noteService
+  noteService
     .update(id, changedNote)
     .then(returnedNote => {
       setNotes(notes.map(note => note.id !== id ? note : returnedNote))
     })
     .catch(error => {
-      alert(
-        `the note '${note.content}' was already deleted from server`
+      setErrorMessage(
+        `Note '${note.content}' was already removed from server`
       )
-      setNotes(notes.filter(n => n.id !== id))
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
+      
+      // setNotes(notes.filter(n => n.id !== id))
     })
 }
   
@@ -88,12 +70,8 @@ noteService
   return (
     <div>
       <h1>Notes</h1>
-      {/* <ul>
-        <li>{notes[0].content}</li>
-        <li>{notes[1].content}</li>
-        <li>{notes[2].content}</li>
-      </ul>
-      <hr></hr> */}
+      <Notification message={errorMessage} />
+  
       <div>
         <button onClick={() => setShowAll(!showAll)}>
           show {showAll ? 'important' : 'all' }
